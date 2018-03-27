@@ -1,0 +1,44 @@
+{
+  "name": "express-requires",
+  "version": "1.0.0",
+  "description": "An express middleware for validating request fields and query parameters and returns a nicely formatted informative response",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edufresne/express-requires.git"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "validation",
+    "requests",
+    "params",
+    "fields"
+  ],
+  "author": "Eric Dufresne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edufresne/express-requires/issues"
+  },
+  "homepage": "https://github.com/edufresne/express-requires#readme",
+  "dependencies": {
+    "express-api-responder": "^1.1.1"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "cookie-parser": "^1.4.3",
+    "coveralls": "^3.0.0",
+    "express": "^4.16.3",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.0.5",
+    "mocha-lcov-reporter": "^1.3.0",
+    "morgan": "^1.9.0",
+    "nyc": "^11.6.0"
+  }
+}
