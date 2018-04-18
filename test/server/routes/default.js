@@ -7,22 +7,43 @@ var requires = require('../../../index');
 router.use(requires());
 
 router.post('/test-requires', function (req, res) {
-  if (req.requires(['field1', 'field2', 'field3']).check()){
-    res.noContent();
-  }
+    if (req.requires(['field1', 'field2', 'field3']).check()) {
+        res.noContent();
+    }
 });
 
 router.post('/test-allows', function (req, res) {
-  if (req.allows(['field1', 'field2', 'field3']).check()){
-    res.noContent();
-  }
+    if (req.allows(['field1', 'field2', 'field3']).check()) {
+        res.noContent();
+    }
 });
 
 router.post('/test-chain', function (req, res) {
-  var fields = ['field1', 'field2', 'field3'];
-  if (req.allows(fields).requires(fields).check()){
-    res.noContent();
-  }
+    var fields = ['field1', 'field2', 'field3'];
+    if (req.allows(fields).requires(fields).check()) {
+        res.noContent();
+    }
+});
+
+router.post('/test-list-requires', function (req, res) {
+    var fields = ['field1', 'field2', 'field3'];
+    if (req.list().requires(fields).check()) {
+        res.noContent();
+    }
+});
+
+router.post('/test-list-allows', function (req, res) {
+    var fields = ['field1', 'field2', 'field3'];
+    if (req.list().allows(fields).check()) {
+        res.noContent();
+    }
+});
+
+router.post('/test-list-chain', function (req, res) {
+    var fields = ['field1', 'field2', 'field3'];
+    if (req.list().allows(fields).requires(fields).check()) {
+        res.noContent();
+    }
 });
 
 module.exports = router;

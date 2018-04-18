@@ -51,6 +51,47 @@ req.requires(fields).allows(fields).check()
 req.allows(fields).require(fields).chec()
 ```
 
+### Validating Lists
+The above validations can also be done on a list object.
+```javascript
+router.post('/person/bluk-create', function(req, res) {
+    var fields = ['firstName', 'lastName'];
+    if (req.list().requires(fields).allows(fields).check()){
+        //...
+    }
+})
+```
+Example Request
+```json
+{
+  "firstName": "test",
+  "lastName": "test2"
+}
+```
+Response
+```json
+{
+  "message": "Expected JSON array body"
+}
+```
+Example 2
+```json
+[
+  {
+    "firstName": "test",
+    "lastName": "test2"
+  },
+  {
+    "firstName": "test3"
+  }
+]
+```
+Response
+```json
+{
+  "message": "Missing required field: lastName at item 1"
+}
+```
 ### Extra Options
 Can optionally add the code and success flag to the response body in event of an error.
 ```javascript
